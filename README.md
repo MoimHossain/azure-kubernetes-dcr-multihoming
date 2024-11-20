@@ -5,7 +5,7 @@ az deployment group create --resource-group ASK-LOG-EXPERIMENTS --template-file 
 ```
 
 ```
-az aks addon enable --addon monitoring --workspace-resource-id '/subscriptions/7f2413b7-93b1-4560-a932-220c34c9db29/resourcegroups/LA-test/providers/microsoft.operationalinsights/workspaces/LOCAL-LA'  --name abc --resource-group LA-test
+az aks addon enable --addon monitoring --workspace-resource-id '/subscriptions/xxx/resourcegroups/LA-test/providers/microsoft.operationalinsights/workspaces/LOCAL-LA'  --name abc --resource-group LA-test
 ```
 
 
