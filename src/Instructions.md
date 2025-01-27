@@ -3,18 +3,18 @@
 # Apply config map
 
 ```bash
-kubectl apply -f configmap.yaml
+kubectl apply -f config-map.yaml
 ```
 
 # Enable Container Insights
 
 ```bash
 
-az aks addon enable --addon monitoring --workspace-resource-id '/subscriptions/xxx/resourcegroups/aks-logs/providers/microsoft.operationalinsights/workspaces/local-laws'  --name ABCAKS --resource-group AKS-LOGS --enable-high-log-scale-mode
+az aks addon enable --addon monitoring --workspace-resource-id '/subscriptions/XXXXX-XXXX-XXXX/resourcegroups/aks-multihome/providers/microsoft.operationalinsights/workspaces/workload-laws'  --name aks-multi-home-demo --resource-group AKS-MULTIHOME --enable-high-log-scale-mode
 ```
 
 # Deploy Bicep
 
 ```bash
-az deployment group create --resource-group AKS-LOGS --template-file .\main.bicep      
+az deployment group create --resource-group AKS-MULTIHOME --template-file main.bicep
 ```

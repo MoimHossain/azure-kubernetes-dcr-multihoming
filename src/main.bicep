@@ -1,8 +1,15 @@
 targetScope = 'resourceGroup'
 
-var clusterName = 'ABCAKS'
-var localLAName = 'LOCAL-LAWS'
-var globalLAName = 'GLOBAL-LAWS' 
+var clusterName = 'aks-multi-home-demo'
+var localLAName = 'WORKLOAD-LAWS'
+var globalLAName = 'PLATFORM-LAWS' 
+
+// var k8sNamespaces = [
+//   'default'  
+//   'kube-system' 
+// ]
+
+var k8sNamespaces = [ '_ALL_K8S_NAMESPACES_' ]
 
 resource managedCluster 'Microsoft.ContainerService/managedClusters@2023-05-01' existing = {
   name: clusterName
@@ -29,10 +36,7 @@ module localContainerLogsDCR 'modules/containerLogv2HSDcr.bicep' = {
   params: {
     dcrName: 'localCILogsDCR'  
     endpointId: localContainerLogsDCREndpoint.outputs.endpointId
-    k8sNamespaces: [
-      'default'  
-      'kube-system' 
-    ]
+    k8sNamespaces: k8sNamespaces
     workspaceResourceId: localLA.id
   }
 }
@@ -61,10 +65,7 @@ module globalContainerLogsDCR 'modules/containerLogv2HSDcr.bicep' = {
   params: {
     dcrName: 'globalCILogsDCR'  
     endpointId: globalContainerLogsDCREndpoint.outputs.endpointId
-    k8sNamespaces: [
-      'default'  
-      'kube-system'      
-    ]
+    k8sNamespaces: k8sNamespaces
     workspaceResourceId: globalLA.id
   }
 }
