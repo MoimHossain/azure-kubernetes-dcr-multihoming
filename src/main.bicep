@@ -1,8 +1,8 @@
 targetScope = 'resourceGroup'
 
-var clusterName = 'aks-multi-home-demo'
-var localLAName = 'WORKLOAD-LAWS'
-var globalLAName = 'PLATFORM-LAWS' 
+var clusterName = 'aks-multi-home'
+var localLAName = 'LOCAL-LAWS'
+var globalLAName = 'GLOBAL-LAWS' 
 
 // var k8sNamespaces = [
 //   'default'  
